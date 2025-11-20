@@ -1,0 +1,541 @@
+:root {
+  --text-size-xs: 0.56rem;
+  --text-size-sm: 0.75rem;
+  --text-size-md: 1rem;
+  --text-size-lg: 1.33rem;
+  --text-size-xl: 1.78rem;
+  --text-size-xl: 2.37rem;
+  --text-size-3xl: 3.16rem;
+  --text-size-4xl: 4.21rem;
+  --text-size-5xl: 5.61rem;
+  --Line-height-base: 1.65;
+  --line-height-headings: 1.15;
+  --Line-length: 70ch;
+  /* max width of a line of text */
+  --headings-family: "Bricolage Grotesque", sans-serif;
+  --base-family: "Lexend", sans-serif;
+
+  /*color styles */
+  --primary-text: rgba(48, 48, 48, 1);
+  --primary-background: rgba(132, 206, 224, 1);
+  --secondary-text: ■rgba(230，138, 115, 1);
+  --secondary-background: rgba(48, 48, 48, 1);
+  --action: rgba(226, 70, 133, 1);
+  --action-hover: hsl(336, 73%, 38%);
+  --highlight: #B3F793;
+
+  /* Spacing Units */
+  --space-unit: 1rem;
+  --space-xs: calc(var(--space-unit) * 0.25);
+  --space-sm: calc(var(--space-unit) * 0.5);
+  --space-md: calc(var(--space-unit) * 1);
+  --space-lg: calc(var(--space-unit) * 1.5);
+  --space-xl: calc(var(--space-unit) * 2);
+  --space-xxl: calc(var(--space-unit) * 3);
+}
+
+html {
+  font-size: 16px;
+}
+@media (min-width: 684px) {
+  html {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1375px) {
+  html {
+    font-size: 24px;
+  }
+}
+
+body {
+  font-size: var(--base-family);
+  font-weight: false;
+  line-height: var(--Line-height-base);
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary-background);
+  color: var(--primary-text);
+}
+
+p {
+  font-size: var(--text-size-md);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--action);
+}
+
+a:hover {
+  color: var(--action-hover);
+}
+
+a :visited {
+  color: var(--action-hover);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--headings-family);
+  font-weight: true;
+  line-height: var(--line-height-headings);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+}
+
+h1,
+.text-size-h1 {
+  font-family: var(--headings-family);
+  font-weight: 700;
+  margin-top: 0;
+  font-size: var(--text-size-4xl);
+}
+
+h2,
+.text-size-h2 {
+  font-size: var(--text-size-xl)
+}
+
+h3,
+.text-size-h3 {
+  font-size: var(--text-size-2xl)
+}
+
+h4,
+.text-size-h4 {
+  font-size: var(--text-size-xl)
+}
+
+h5,
+.text-size-h5 {
+  font-size: var(--text-size-lg)
+}
+
+.text-caption{
+  font-size: var(--text-size-sm);
+}
+
+small,
+.text-small {
+  font-size: var(--text-size-xs);
+}
+
+figure {
+  position: relative;
+}
+
+figure img{
+  vertical-align: middle;
+  /*removes gap below image */
+}
+
+.text-caption {
+  margin: 0;
+  padding: .5rem;
+  position: absolute;
+  bottom: -3px;
+  right: 0;
+  background-color: rgba(255, 255, 255, .8);
+}
+
+.intro {
+  font-size: var(--text-size-lg);
+}
+
+.site-title {
+  font-family: var(--headings-family);
+  font-weight: 100;
+  font-size: var(--text-size-xl);
+}
+
+/*basic responsive images css */
+img, video{
+  max-width:100%;
+  height: auto;
+}
+
+.landmarks-grid {
+  display: grid;
+  grid: gap 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+figure {
+  margin: 0;
+}
+
+.text-content {
+  max-width: var(--Line-length);
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+/*------------------------------------
+Responsive video 
+-----------------------*/
+
+.videoWrapper {
+	position: relative;
+	padding-top: 25px;
+	height: 0;
+  clear:both;
+}
+
+/* 16:9 aspect ratio wrapper */
+.videoWrapper.ratio-16-9{
+    padding-bottom: 56.25%; /* 9 ÷ 16 = .5625 which is 56.25% */
+}
+
+/* 4:3 aspect ratio wrapper */
+.videoWrapper.ratio-4-3{
+    padding-bottom: 75%; /* 3 ÷ 4 = .75 which is 75% */
+}
+
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.featured-landmark {
+  background-color: var(--highlight);
+}
+
+.featured-landmark picture {
+  display: block;
+  max-width: var(--Line-length);
+  margin: 0 auto;
+  background-color: var(--highlight);
+}
+
+/*--------------
+cards
+----------------*/
+.landmarks-grid {
+  padding: 1rem;
+}
+
+.landmark {
+  display: flex;
+  flex-direction: column;
+  /* padding:.5rem; */
+  background-color: var(--secondary-background);
+  color: var(--secondary-text);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 5px 5px 10px rgba(20, 20, 20, .4);
+}
+
+.landmark h3 {
+  margin-top: .5rem;
+  margin-bottom: 0;
+  padding: 0 .5rem;
+}
+
+.video-tour {
+  padding: 2rem;
+}
+
+.header {
+  padding: 1rem;
+}
+
+.footer {
+  text-align: center;
+  border-top: 1px solid #666666;
+  margin-top: 3rem;
+  padding-top: 2rem
+}
+
+/*----------------
+Styling for individual landmark pages
+------------------*/  
+.landmark-page .intro{
+  padding: 0 var(--space-sm);
+}
+.landmark-page .about{
+  padding: 0 var(--space-sm);
+}
+.landmark-page .image-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+.landmark-page .figcaption{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, .8);
+  padding: var(--space-xs);
+}
+@media (min-width: 684px){
+  .landmark-page .image-grid{
+    grid-template-columns: repeat (2, 1fr);
+  }
+}
+@media (min-width: 1375px){
+  .landmark-page .image-grid{
+    grid-template-columns: repeat (3, 1fr);
+  }
+}
+
+.image-box{
+  border:2px solid red;
+  width: 85%;
+}
+
+/*max-width: 100%;  this is the main thing that forces the image to fit in the containe */
+/* height: auto; included for clarity, the height adjusts the same as the width*/
+.responsive img{
+  max-width: 100%;
+  height: auto;
+}
+:root {
+  --clr-nav: #ffffff;
+  --clr-nav-hover: #333333;
+  --clr-nav-hover-bg: #ffffff;
+  --clr-nav-background: #333333;
+  /* These change the easing of transitions, used on menu button */
+  --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1);/* ease in and out */
+  --ease-in: cubic-bezier(0.42, 0, 1, 1);/* ease in */
+  --ease-out: cubic-bezier(0, 0, 0.58, 1);/* ease out */
+  --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1); /* ease in and out, more pronounced */
+}
+
+/* Header as a vertical stack: topbar, then nav */
+header {
+  background: var(--clr-nav-background);
+  color: var(--clr-nav);
+}
+
+/* Top row: logo + hamburger aligned horizontally */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.logo {
+  color: var(--clr-nav);
+  text-decoration: none;
+  /* You will need to add the font styling (size, color etc) here */
+}
+
+/* Menu/Close button */
+.menu-button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0.5rem 1rem;
+  color: var(--clr-nav);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 200ms var(--ease-standard);
+}
+
+.menu-button:hover {
+  opacity: 0.8;
+}
+
+/* Toggle text: "Menu" → "Close" */
+.menu-button-text::before {
+  content: "Landmarks";
+}
+
+.menu-button[aria-expanded="true"] .menu-button-text::before {
+  content: "Close";
+}
+
+/* Nav (below topbar) */
+nav {
+  background: var(--clr-nav-background);
+}
+
+/* Collapsed menu by default */
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  /* Smooth collapse/expand with gentle fade */
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 520ms var(--ease-in-out),
+    opacity 260ms var(--ease-in-out);
+}
+
+/* Expanded state (JS toggles .is-open on the UL) */
+.menu.is-open {
+  max-height: 80vh;
+  opacity: 1;
+}
+
+/* Vertical, full-width items */
+.menu li + li {
+  border-top: 2px solid rgba(255,255,255,0.45);
+}
+
+.menu a {
+  display: block;
+  padding: 1rem;
+  text-align: center;
+  color: var(--clr-nav);
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+  background: var(--clr-nav-hover-bg);
+  color: var(--clr-nav-hover);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu { transition: none; }
+}
+
+/* Desktop: horizontal layout, inline logo & nav */
+@media (min-width: 1240px) {
+  /* Header becomes horizontal flex container */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+  }
+
+  /* Hide the topbar wrapper since header is now flex */
+  .topbar {
+    display: contents; /* children become direct flex items of header */
+  }
+
+  /* Hide hamburger button */
+  .menu-button {
+    display: none;
+  }
+
+  /* Nav aligns with header */
+  nav {
+    background: transparent;
+  }
+
+  /* Always show menu, horizontal layout */
+  .menu {
+    max-height: none;
+    opacity: 1;
+    overflow: visible;
+    transition: none;
+    
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  /* Remove vertical borders */
+  .menu li + li {
+    border-top: none;
+  }
+
+  /* Button-like nav items with centered text */
+  .menu a {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-align: center;
+    transition: 
+      background 180ms var(--ease-standard),
+      color 180ms var(--ease-standard);
+  }
+
+  .menu a:hover,
+  .menu a:focus-visible {
+    background: var(--clr-nav-hover-bg);
+    color: var(--clr-nav-hover);
+  }
+}
+/* ===== Navigation Desktop ===== */
+nav {
+  background: #333;
+  padding: 16px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+nav a:hover {
+  opacity: .7;
+}
+
+/* ===== Mobile Navigation Default (hidden menu) ===== */
+.menu-toggle {
+  display: none;
+  background: #333;
+  color: white;
+  padding: 16px;
+  font-size: 22px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border: none;
+}
+
+.close-menu {
+  display: none;
+  background: #333;
+  color: white;
+  font-size: 20px;
+  padding: 14px;
+  text-align: right;
+  cursor: pointer;
+}
+
+/* ===== MOBILE MODE ===== */
+@media (max-width: 768px) {
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+  }
+
+  nav ul li {
+    padding: 18px;
+    border-bottom: 1px solid #777;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav.open ul {
+    display: flex;
+  }
+
+  nav.open .close-menu {
+    display: block;
+  }
+}
